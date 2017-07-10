@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :todo do
-    title "MyString"
+    sequence(:title) { |n| "todo#{n}" }
     completed false
   end
 end
