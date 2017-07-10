@@ -1,0 +1,71 @@
+FORMAT: A1
+
+# Group Todos
+
+## Get todos list [/todos]
+
+### Get todos list [GET]
+
++ Request exists
+
+    + Headers
+
+        Host: example.org
+        Cookie: 
+
++ Response 200 (application/json)
+
+    + Headers
+
+        Content-Type: application/json
+        ETag: W/"4eec2920796f4875446c4201abebaa85"
+        Cache-Control: max-age=0, private, must-revalidate
+        X-Request-Id: 6e9d1e58-ee63-4728-9f11-04704b13d8aa
+        X-Runtime: 0.024910
+        Vary: Origin
+        Content-Length: 133
+
+    + Body
+
+        [
+          {
+            "id": 85,
+            "title": "todo1",
+            "completed": false
+          },
+          {
+            "id": 86,
+            "title": "todo2",
+            "completed": false
+          },
+          {
+            "id": 87,
+            "title": "todo3",
+            "completed": false
+          }
+        ]
+
++ Request not exists
+
+    + Headers
+
+        Host: example.org
+        Cookie: 
+
++ Response 200 (application/json)
+
+    + Headers
+
+        Content-Type: application/json
+        ETag: W/"4f53cda18c2baa0c0354bb5f9a3ecbe5"
+        Cache-Control: max-age=0, private, must-revalidate
+        X-Request-Id: ed724214-4f91-4571-9474-0ce10d551396
+        X-Runtime: 0.003304
+        Vary: Origin
+        Content-Length: 2
+
+    + Body
+
+        [
+        
+        ]
