@@ -30,6 +30,13 @@ module TodoApi
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
 
+    config.generators do |g|
+      g.test_framework :rspec,
+        routing_specs: false,
+        controller_specs: false,
+        request_specs: false
+    end
+
     config.middleware.insert_before 0, Rack::Cors do
       allow do
         origins '*'
