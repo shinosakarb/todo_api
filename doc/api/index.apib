@@ -18,28 +18,28 @@ FORMAT: A1
     + Headers
 
         Content-Type: application/json
-        ETag: W/"4eec2920796f4875446c4201abebaa85"
+        ETag: W/"be85a37aaf326a569ad8de6e987274f8"
         Cache-Control: max-age=0, private, must-revalidate
-        X-Request-Id: 6e9d1e58-ee63-4728-9f11-04704b13d8aa
-        X-Runtime: 0.024910
+        X-Request-Id: 485e36cf-578e-4de3-b8b7-39f0e35c5783
+        X-Runtime: 0.018569
         Vary: Origin
-        Content-Length: 133
+        Content-Length: 136
 
     + Body
 
         [
           {
-            "id": 85,
+            "id": 108,
             "title": "todo1",
             "completed": false
           },
           {
-            "id": 86,
+            "id": 109,
             "title": "todo2",
             "completed": false
           },
           {
-            "id": 87,
+            "id": 110,
             "title": "todo3",
             "completed": false
           }
@@ -59,8 +59,8 @@ FORMAT: A1
         Content-Type: application/json
         ETag: W/"4f53cda18c2baa0c0354bb5f9a3ecbe5"
         Cache-Control: max-age=0, private, must-revalidate
-        X-Request-Id: ed724214-4f91-4571-9474-0ce10d551396
-        X-Runtime: 0.003304
+        X-Request-Id: 53ab8d92-dfa3-4462-8e4d-83e983a51e2f
+        X-Runtime: 0.002538
         Vary: Origin
         Content-Length: 2
 
@@ -69,3 +69,60 @@ FORMAT: A1
         [
         
         ]
+
+## Get a todo [/todos/:id]
+
+### Get a todo [GET]
+
++ Request exists
+
+    + Headers
+
+        Host: example.org
+        Cookie: 
+
++ Response 200 (application/json)
+
+    + Headers
+
+        Content-Type: application/json
+        ETag: W/"c4898b750660919f8b2d781da31fd172"
+        Cache-Control: max-age=0, private, must-revalidate
+        X-Request-Id: 0d1f1680-278d-4df9-afe0-f8b27db33391
+        X-Runtime: 0.004248
+        Vary: Origin
+        Content-Length: 44
+
+    + Body
+
+        {
+          "id": 111,
+          "title": "todo4",
+          "completed": false
+        }
+
++ Request not exists
+
+    + Headers
+
+        Host: example.org
+        Cookie: 
+
++ Response 404 (application/json)
+
+    + Headers
+
+        Content-Type: application/json
+        Cache-Control: no-cache
+        X-Request-Id: b329d3b1-e1ad-4f5a-8f01-6d8bba8caa7a
+        X-Runtime: 0.006808
+        Vary: Origin
+        Content-Length: 20
+
+    + Body
+
+        {
+          "id": [
+            "Not found"
+          ]
+        }
