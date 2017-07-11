@@ -2,7 +2,208 @@ FORMAT: A1
 
 # Group Todos
 
-## Get todos list [/todos]
+## Specific todo [/todos/:id]
+
++ Parameters
+  + title - Todo title
+
+### Get a todo [GET]
+
++ Request exists
+
+    + Headers
+
+        Host: example.org
+        Cookie: 
+
++ Response 200 (application/json)
+
+    + Headers
+
+        Content-Type: application/json
+        ETag: W/"3cadae743c80868a11680820fbd44075"
+        Cache-Control: max-age=0, private, must-revalidate
+        X-Request-Id: 6dde3093-3c55-4a75-b92d-7d88d17f15b8
+        X-Runtime: 0.007307
+        Vary: Origin
+        Content-Length: 44
+
+    + Body
+
+        {
+          "id": 154,
+          "title": "todo4",
+          "completed": false
+        }
+
++ Request not exists
+
+    + Headers
+
+        Host: example.org
+        Cookie: 
+
++ Response 404 (application/json)
+
+    + Headers
+
+        Content-Type: application/json
+        Cache-Control: no-cache
+        X-Request-Id: ca458cab-d6a5-477d-8c62-ce1baa5f2f6b
+        X-Runtime: 0.005115
+        Vary: Origin
+        Content-Length: 20
+
+    + Body
+
+        {
+          "id": [
+            "Not found"
+          ]
+        }
+
+### Update a todo [PATCH]
+
++ Request failed (application/x-www-form-urlencoded)
+
+    + Headers
+
+        Host: example.org
+        Content-Type: application/x-www-form-urlencoded
+        Cookie: 
+
+    + Body
+
+        todo[title]=
+
++ Response 422 (application/json)
+
+    + Headers
+
+        Content-Type: application/json
+        Cache-Control: no-cache
+        X-Request-Id: 714bf65e-6d14-4ed6-97a3-f67c1bc21896
+        X-Runtime: 0.004332
+        Vary: Origin
+        Content-Length: 28
+
+    + Body
+
+        {
+          "title": [
+            "can't be blank"
+          ]
+        }
+
++ Request not exists (application/x-www-form-urlencoded)
+
+    + Headers
+
+        Host: example.org
+        Content-Type: application/x-www-form-urlencoded
+        Cookie: 
+
++ Response 404 (application/json)
+
+    + Headers
+
+        Content-Type: application/json
+        Cache-Control: no-cache
+        X-Request-Id: 8544d854-728e-4321-b7c6-44a49abd5ef3
+        X-Runtime: 0.004074
+        Vary: Origin
+        Content-Length: 20
+
+    + Body
+
+        {
+          "id": [
+            "Not found"
+          ]
+        }
+
++ Request success (application/x-www-form-urlencoded)
+
+    + Headers
+
+        Host: example.org
+        Content-Type: application/x-www-form-urlencoded
+        Cookie: 
+
+    + Body
+
+        todo[title]=todo
+
++ Response 200 (application/json)
+
+    + Headers
+
+        Content-Type: application/json
+        ETag: W/"2401610babab9e847cda96adea861fa6"
+        Cache-Control: max-age=0, private, must-revalidate
+        X-Request-Id: 366d6978-cb4e-4ced-b146-7de7e3d89d6c
+        X-Runtime: 0.008664
+        Vary: Origin
+        Content-Length: 43
+
+    + Body
+
+        {
+          "id": 155,
+          "title": "todo",
+          "completed": false
+        }
+
+### Delete a todo [DELETE]
+
++ Request not exists (application/x-www-form-urlencoded)
+
+    + Headers
+
+        Host: example.org
+        Content-Type: application/x-www-form-urlencoded
+        Cookie: 
+
++ Response 404 (application/json)
+
+    + Headers
+
+        Content-Type: application/json
+        Cache-Control: no-cache
+        X-Request-Id: 3d5412b4-8157-4b15-80c0-c24588a6826b
+        X-Runtime: 0.002204
+        Vary: Origin
+        Content-Length: 20
+
+    + Body
+
+        {
+          "id": [
+            "Not found"
+          ]
+        }
+
++ Request success (application/x-www-form-urlencoded)
+
+    + Headers
+
+        Host: example.org
+        Content-Type: application/x-www-form-urlencoded
+        Cookie: 
+
++ Response 204 ()
+
+    + Headers
+
+        Cache-Control: no-cache
+        X-Request-Id: c90a1849-0ac9-47ea-994a-88e7602661c0
+        X-Runtime: 0.003029
+        Vary: Origin
+
+## Todos collection [/todos]
+
++ Parameters
+  + title - Todo title
 
 ### Get todos list [GET]
 
@@ -18,10 +219,10 @@ FORMAT: A1
     + Headers
 
         Content-Type: application/json
-        ETag: W/"be85a37aaf326a569ad8de6e987274f8"
+        ETag: W/"9a92559ce10f2b93bd6098698f351f0b"
         Cache-Control: max-age=0, private, must-revalidate
-        X-Request-Id: 485e36cf-578e-4de3-b8b7-39f0e35c5783
-        X-Runtime: 0.018569
+        X-Request-Id: eaf8c78d-1ca6-4f0c-91b2-709c029823e8
+        X-Runtime: 0.015378
         Vary: Origin
         Content-Length: 136
 
@@ -29,17 +230,17 @@ FORMAT: A1
 
         [
           {
-            "id": 108,
+            "id": 150,
             "title": "todo1",
             "completed": false
           },
           {
-            "id": 109,
+            "id": 151,
             "title": "todo2",
             "completed": false
           },
           {
-            "id": 110,
+            "id": 152,
             "title": "todo3",
             "completed": false
           }
@@ -59,8 +260,8 @@ FORMAT: A1
         Content-Type: application/json
         ETag: W/"4f53cda18c2baa0c0354bb5f9a3ecbe5"
         Cache-Control: max-age=0, private, must-revalidate
-        X-Request-Id: 53ab8d92-dfa3-4462-8e4d-83e983a51e2f
-        X-Runtime: 0.002538
+        X-Request-Id: 1586cab7-513c-4648-a89c-9da13bb9abf4
+        X-Runtime: 0.001768
         Vary: Origin
         Content-Length: 2
 
@@ -70,59 +271,68 @@ FORMAT: A1
         
         ]
 
-## Get a todo [/todos/:id]
+### Add a todo [POST]
 
-### Get a todo [GET]
-
-+ Request exists
++ Request failed (application/x-www-form-urlencoded)
 
     + Headers
 
         Host: example.org
+        Content-Type: application/x-www-form-urlencoded
         Cookie: 
 
-+ Response 200 (application/json)
+    + Body
+
+        todo[title]=
+
++ Response 422 (application/json)
 
     + Headers
 
         Content-Type: application/json
-        ETag: W/"c4898b750660919f8b2d781da31fd172"
+        Cache-Control: no-cache
+        X-Request-Id: eba0c1fd-365b-4cf0-a3db-8b9bebec8af3
+        X-Runtime: 0.009542
+        Vary: Origin
+        Content-Length: 28
+
+    + Body
+
+        {
+          "title": [
+            "can't be blank"
+          ]
+        }
+
++ Request success (application/x-www-form-urlencoded)
+
+    + Headers
+
+        Host: example.org
+        Content-Type: application/x-www-form-urlencoded
+        Cookie: 
+
+    + Body
+
+        todo[title]=todo1
+
++ Response 201 (application/json)
+
+    + Headers
+
+        Location: http://example.org/todos/153
+        Content-Type: application/json
+        ETag: W/"627b76cad095fb637a2444f77e7bc7a6"
         Cache-Control: max-age=0, private, must-revalidate
-        X-Request-Id: 0d1f1680-278d-4df9-afe0-f8b27db33391
-        X-Runtime: 0.004248
+        X-Request-Id: d3168305-4ce7-47c1-a791-dd4fb8c667dc
+        X-Runtime: 0.008742
         Vary: Origin
         Content-Length: 44
 
     + Body
 
         {
-          "id": 111,
-          "title": "todo4",
+          "id": 153,
+          "title": "todo1",
           "completed": false
-        }
-
-+ Request not exists
-
-    + Headers
-
-        Host: example.org
-        Cookie: 
-
-+ Response 404 (application/json)
-
-    + Headers
-
-        Content-Type: application/json
-        Cache-Control: no-cache
-        X-Request-Id: b329d3b1-e1ad-4f5a-8f01-6d8bba8caa7a
-        X-Runtime: 0.006808
-        Vary: Origin
-        Content-Length: 20
-
-    + Body
-
-        {
-          "id": [
-            "Not found"
-          ]
         }
